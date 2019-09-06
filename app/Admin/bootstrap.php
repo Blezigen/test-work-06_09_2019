@@ -18,4 +18,11 @@
  *
  */
 
+use Encore\Admin\Grid\Column;
+
+
+//Column::extend('image', \App\Admin\Extensions\ImageColumn::class);
+Column::extend('currency', \App\Admin\Extensions\CurrencyColumn::class);
+
 Encore\Admin\Form::forget(['map', 'editor']);
+
