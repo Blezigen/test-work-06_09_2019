@@ -165,6 +165,7 @@ return [
         /*
          * Package Service Providers...
          */
+        Scorpion\Currency\CurrencyServiceProvider::class,
 
         /*
          * Application Service Providers...

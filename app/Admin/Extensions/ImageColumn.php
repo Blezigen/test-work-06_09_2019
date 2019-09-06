@@ -3,25 +3,26 @@
  * Created by PhpStorm.
  * User: user_ilyas
  * Date: 06.09.2019
- * Time: 21:40
+ * Time: 21:27
  */
 
 namespace App\Admin\Extensions;
 
-
+use Encore\Admin\Admin;
 use Encore\Admin\Grid\Displayers\AbstractDisplayer;
 
-class CurrencyColumn extends AbstractDisplayer
+class ImageColumn extends AbstractDisplayer
 {
 
     /**
      * Display method.
      *
-     * @param string $default
      * @return mixed
      */
-    public function display($default="c.u.")
+    public function display()
     {
-        return "{$this->getValue()} {$default}";
+        return <<<EOT
+<img src='/storage/{$this->getValue()}' alt='{$this->getKey()}'/>
+EOT;
     }
 }

@@ -27,10 +27,10 @@ class ProductController extends AdminController
         $grid = new Grid(new Product);
 
         $grid->column('id', __('Id'));
+        $grid->column('article', __('Article'));
         $grid->column('image', __('Image'))->image("",60);
         $grid->column('name', __('Name'));
-        $grid->column('article', __('Article'));
-        $grid->column('description', __('Description'));
+        $grid->column('description', __('Description'))->text(60);
         $grid->column('price', __('Price'))->currency("RUB");
         $grid->column('created_at', __('Created at'))->hide();
         $grid->column('updated_at', __('Updated at'));
@@ -53,7 +53,7 @@ class ProductController extends AdminController
         $show->field('article', __('Article'));
         $show->field('image', __('Image'));
         $show->field('description', __('Description'));
-        $show->field('price', __('Price'));
+        $show->field('price', __('Price'))->currency("RUB");
         $show->field('created_at', __('Created at'));
         $show->field('updated_at', __('Updated at'));
 

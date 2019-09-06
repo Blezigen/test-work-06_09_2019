@@ -3,7 +3,7 @@
  * Created by PhpStorm.
  * User: user_ilyas
  * Date: 06.09.2019
- * Time: 21:40
+ * Time: 22:28
  */
 
 namespace App\Admin\Extensions;
@@ -11,17 +11,18 @@ namespace App\Admin\Extensions;
 
 use Encore\Admin\Grid\Displayers\AbstractDisplayer;
 
-class CurrencyColumn extends AbstractDisplayer
+class TextColumn extends AbstractDisplayer
 {
 
     /**
      * Display method.
      *
-     * @param string $default
+     * @param null $limit
      * @return mixed
      */
-    public function display($default="c.u.")
+    public function display($limit = null)
     {
-        return "{$this->getValue()} {$default}";
+
+        return $limit !== null ? mb_strimwidth($this->getValue(), 0, $limit, "..."): $this->getValue();
     }
 }
