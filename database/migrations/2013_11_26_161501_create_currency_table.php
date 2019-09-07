@@ -16,7 +16,7 @@ class CreateCurrencyTable extends Migration
      */
     public function __construct()
     {
-        $this->table_name = config('cbr.drivers.database.table');
+        $this->table_name = "currencies";
     }
 
     /**

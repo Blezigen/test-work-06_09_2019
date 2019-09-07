@@ -488,6 +488,12 @@ return [
         'format' => '1,0.00M',
         'exchange_rate' => 0.00,
     ],
+    'BYN' => [
+        'name' => 'Belarussian Ruble',
+        'symbol' => 'د.ل.‏',
+        'format' => 'د.ل.‏1,0.000',
+        'exchange_rate' => 0.00,
+    ],
     'LYD' => [
         'name' => 'Libyan Dinar',
         'symbol' => 'د.ل.‏',

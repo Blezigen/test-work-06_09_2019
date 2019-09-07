@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "93c5c7ebfb42d679b6270580cd9e6862",
+    "content-hash": "f259fa07089178727504e1b66fa11b1c",
     "packages": [
         {
             "name": "davodavodavo3/currency",
@@ -5072,7 +5072,8 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.1.3"
+        "php": "^7.1.3",
+        "ext-mbstring": "*"
     },
     "platform-dev": []
 }

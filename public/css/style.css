@@ -1,0 +1,65 @@
+html, body {
+    background-color: #fff;
+    color: black;
+    font-family: proxima-nova-condensed, "Source Sans Pro", Helvetica, Arial, sans-serif;
+    font-weight: 200;
+    height: 100vh;
+    margin: 0;
+}
+
+.full-height {
+    height: 100vh;
+}
+
+.top-right {
+    position: absolute;
+    right: 10px;
+    top: 18px;
+}
+
+.header {
+    text-align: center;
+}
+
+.title {
+    font-size: 84px;
+}
+
+.links {
+}
+
+ a {
+    color: black;
+    padding: 0 25px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: .1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.product-card {
+    padding-bottom: 40px;
+}
+.product-card .product-image{
+    padding: 20px;
+}
+.product-card .product-title{
+    font-size: 19px;
+    text-align: left;
+    border: 1px solid #000;
+}
+.product-card .product-desc{
+
+    padding: 20px;
+}
+
+.product-desc pre {
+    text-align: left;
+    font-size: 14px;
+    color: black;
+    white-space: pre-wrap;
+    font-family: proxima-nova-condensed, "Source Sans Pro", Helvetica, Arial, sans-serif;
+}
+
+.product-card .product-price{}
