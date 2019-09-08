@@ -10,13 +10,23 @@ use Encore\Admin\Layout\Row;
 
 class HomeController extends Controller
 {
+    public static function functions()
+    {
+        return view('admin.dashboard.functions');
+    }
+
+
     public function index(Content $content)
     {
         return $content
             ->title('Dashboard')
-            ->description('Description...')
+            ->description('Can use it.')
             ->row(Dashboard::title())
             ->row(function (Row $row) {
+
+                $row->column(12, function (Column $column) {
+                    $column->append(HomeController::functions());
+                });
 
                 $row->column(4, function (Column $column) {
                     $column->append(Dashboard::environment());
@@ -25,6 +35,7 @@ class HomeController extends Controller
                 $row->column(4, function (Column $column) {
                     $column->append(Dashboard::extensions());
                 });
+
 
                 $row->column(4, function (Column $column) {
                     $column->append(Dashboard::dependencies());

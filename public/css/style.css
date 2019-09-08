@@ -22,11 +22,13 @@ html, body {
 }
 
 .title {
-    font-size: 84px;
+    padding: 30px;
 }
 
 .links {
 }
+
+
 
  a {
     color: black;
@@ -38,6 +40,9 @@ html, body {
     text-transform: uppercase;
 }
 
+ #products{
+     font-size: 11px;
+ }
 .product-card {
     padding-bottom: 40px;
 }
@@ -49,12 +54,12 @@ html, body {
     text-align: left;
     border: 1px solid #000;
 }
-.product-card .product-desc{
+.product-price{
 
     padding: 20px;
 }
 
-.product-desc pre {
+pre {
     text-align: left;
     font-size: 14px;
     color: black;

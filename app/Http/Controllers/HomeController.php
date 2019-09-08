@@ -28,6 +28,7 @@ class HomeController extends Controller
             "products" => []
         ];
 
+        $data["currencies"] = include(resource_path("/currencies.php"));
         $data["products"] = Product::all();
 
 

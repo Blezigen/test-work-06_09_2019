@@ -12,5 +12,8 @@ Route::group([
 
     $router->get('/', 'HomeController@index')->name('admin.home');
     $router->resource('products', ProductController::class);
+    $router->resource('currencies', CurrencyController::class);
+    $router->get('update/currency', CurrencyController::class.'@updateFromTheCbr');
+
 });
 

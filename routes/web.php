@@ -17,5 +17,6 @@
 Auth::routes();
 
 Route::get('/', 'HomeController@welcome')->name('home');
+Route::post('/', 'HomeController@welcome');
 Route::get('/profile', 'ProfileController@showProfileForm');
 Route::post('/profile', 'ProfileController@profile')->name('profile');

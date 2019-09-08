@@ -1,5 +1,4 @@
 <?php
-
 return [
 
     /*
@@ -165,7 +164,7 @@ return [
         /*
          * Package Service Providers...
          */
-        Scorpion\Currency\CurrencyServiceProvider::class,
+//        App\Providers\CurrencyServiceProvider::class,
 
         /*
          * Application Service Providers...
