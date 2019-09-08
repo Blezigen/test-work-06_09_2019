@@ -14,6 +14,9 @@ mv test-work-06_09_2019 test.work.example
 cd test.work.example
 
 -- Настроить переменные окружения в файле .env
+-- APP_DEBUG=false
+-- APP_URL=http://test.work.example
+-- APP_NAME=TestExample
 cp .env.example .env
 
 -- Подтянуть зависимости

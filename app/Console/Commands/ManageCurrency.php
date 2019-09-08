@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Currency;
+use Doctrine\DBAL\Schema\Schema;
 use Illuminate\Console\Command;
 use Illuminate\Support\Arr;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -302,9 +303,10 @@ class ManageCurrency extends Command
                     "code" => (string)$currencyIn->CharCode,
                     "symbol" => $curr["symbol"],
                     "format" => $curr["format"],
-                    "exchange_rate" => str_replace(",",".", $currencyIn->Value),
                     "active" => 0
                 ]);
+                $currencyDB->exchange_rate = str_replace(",",".", $currencyIn->Value);
+
 
                 if ($currencyIn->CharCode == $this->defaultCurrency) {
                     $currencyDB->nominal = 1;
