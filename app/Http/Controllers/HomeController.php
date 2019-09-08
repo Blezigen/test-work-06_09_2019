@@ -24,14 +24,6 @@ class HomeController extends Controller
      */
     public function welcome()
     {
-        $data = [
-            "products" => []
-        ];
-
-        $data["currencies"] = include(resource_path("/currencies.php"));
-        $data["products"] = Product::all();
-
-
-        return view('welcome', $data);
+        return view('welcome');
     }
 }

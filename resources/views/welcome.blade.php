@@ -11,128 +11,69 @@
     </div>
     <div class="row">
         <div class="col-md-12" style="text-align: center;">
-            <h1>Products</h1>
+            <h1>Home page</h1>
         </div>
     </div>
-    <form method="POST" action="{{ route("api.products")  }}" class="row" id="update-products" style="margin-bottom: 10px;">
-        <div class="col-md-12">
-            <label for="currency">{{__("Select currencies")}}</label>
+    <div class="row">
+        <div class="col-md-12 ">
+            <div style="margin: 0 auto; width: 300px;"><a style="display: block;" href="https://github.com/Blezigen/test-work-06_09_2019"><img src="{{ asset("img/github-octocat.png" )}}" style=" width: 100%;"></a></div>
         </div>
-        <div class="col-md-12">
-            <select name="currency[]" id="currency" class="form-control"  multiple="multiple" style="display: none;">
-                @foreach($currencies as $currency=>$value)
-                    @if($currency == "RUB")
-                        <option value="{{$currency}}" selected>[{{$currency}}] {{$value["name"]}}</option>
-                    @else
-                        <option value="{{$currency}}">[{{$currency}}] {{$value["name"]}}</option>
-                    @endif
-                @endforeach
-            </select>
-        </div>
-    </form>
-    <div class="row" id="product_cards">
-        <div class="col-md-12">
-            <table class="table table-bordered table-striped">
-                <thead>
-                    <tr>
-                        <th rowspan="2">Article</th>
-                        <th rowspan="2">Photo</th>
-                        <th rowspan="2">Name</th>
-                        <th rowspan="2">Description</th>
-                        <th id="currency-table-part-column" colspan="1">Prices</th>
-                    </tr>
-                    <tr id="currency-table-part">
-                    </tr>
-                </thead>
-                <tbody id="products">
-                </tbody>
-            </table>
+        <div class="col-md-12 ">
+            <div class="card">
+                <div style="padding: 20px;">
+                    <h2>Тестовое задание.</h2>
+
+                    <h3>Общее описание:</h3>
+                    <p>Необходимо разработать личный кабинет со списком товаров и курсом валют на Yii2 или Laravel + MySQL.</p>
+                    <p>Для создания таблиц необходимо использовать миграции.</p>
+                    <p>Для визуального отображения можно использовать Bootstrap (или другой фреймворк)</p>
+
+                    <p>
+                        В системе должны быть следующие страницы:
+                        <ul>
+                            <li><a href="/login">Вход</a></li>
+                            <li><a href="/register">Регистрация</a></li>
+                            <li><a href="/password/reset">Восстановление пароля</a></li>
+                            <li><a href="/profile">Изменение профиля (имя, пароль)</a></li>
+                            <li><a href="/products">Товары</a></li>
+                            <li><a href="/admin/currencies">Валюты</a></li>
+                        </ul>
+                    </p>
+
+                    <p>В системе должны быть предусмотрены 2 роли:
+                        <ul>
+                            <li>Администратор (<a href="/admin">Админпанель</a>)</li>
+                            <li>Пользователь (<a href="/profile">Профиль пользователя</a>)</li>
+                        </ul>
+                    </p>
+
+                    <p>При регистрации присваивается роль "пользователь".</p>
+                    <p>Добавление администратора системы должно осуществляться через консольную команду, например, "php yii admin/create".</p>
+
+                    <p>Администратор должен иметь возможность добавлять/ редактировать/удалять товары.</p>
+
+                    <p>Доступные поля:
+                        <ul>
+                            <li>Название*</li>
+                            <li>Артикул</li>
+                            <li>Фото</li>
+                            <li>Описание</li>
+                            <li>Цена в рублях*</li>
+                            <li>* Обязательные поля</li>
+                        </ul>
+                    </p>
+                    <p>Пользователь, в свою очередь, видит только список товаров и редактировать/удалять/добавлять их не может.</p>
+                    <p>Так же у пользователя есть список валют (взять список валют с http://www.cbr.ru).</p>
+
+                    <p>Он может добавить любую валюту, а так же ее удалить.</p>
+                    <p>После добавления валюты, в списке товаров добавляется колонка с валютой и показывается стоимость товара в добавленной валюте (если будет добавлено, например, 3 валюты, то добавляется 3 колонки).</p>
+                    <p>Курс валют должен обновляться раз в день. Все данные по валютам необходимо получать с сайта http://www.cbr.ru.</p>
+            </div>
+            </div>
+
         </div>
     </div>
+
+
 </section>
-@endsection
-
-@section('endScript')
-    <script>
-        var $multiSelects = $("select[multiple='multiple']");
-        function install(){
-            $multiSelects.bsMultiSelect();
-        }
-        install();
-
-
-        function printCurrency(prices){
-            $("#currency-table-part-column").attr("colspan",prices.length);
-
-            let data = "";
-
-            $.each( prices, function( key, value ) {
-                data = data + "<td title=\""+value.name+"\" data-currency=\""+key+"\">["+key+"]<br>"+value.symbol+"</td>";
-            });
-
-            return data;
-        }
-
-        function printProductPrice(prices){
-            $("#currency-table-part-column").attr("colspan",prices.length);
-
-            let data = "";
-
-            $.each( prices, function( key, value ) {
-                data = data + "<td class='product-price' title=\""+value.name+"\" data-currency=\""+key+"\">"+value.value+"</td>";
-            });
-
-            return data;
-        }
-
-
-        function printProduct(data){
-            let priceList =  printProductPrice(data.prices);
-
-            return "<tr id=\"product-"+data.id+"\">\n" +
-                "                <td>"+data.article+"</td>\n" +
-                "                <td><img src=\"/storage/"+data.image+"\" style=\"width: 100%;\" alt=\""+data.name+"\"></td>\n" +
-                "                <td>"+data.name+"</td>\n" +
-                "                <td><pre>"+data.description+"</pre></td>\n" + priceList +
-                "            </tr>";
-
-        }
-
-
-        $('#update-products').on("submit", function () {
-
-            $.ajax({
-                method: "POST",
-                url: "{{ route("api.products") }}",
-                data:  {
-                    cur:$('#currency').val().join(',')
-                }
-            }).done(function(data) {
-                $("#products").html("");
-                if ( data.products.length > 0 ) {
-                    $.each(data.products, function (key, value) {
-                        let dataTemp = data.products[key];
-                        $("#currency-table-part-column").attr("colspan", Object.keys(dataTemp.prices).length);
-                        $("#currency-table-part").html(printCurrency(dataTemp.prices));
-
-                        let temp = $("#products").html();
-                        $("#products").html(temp + printProduct(data.products[key]));
-                    });
-                }
-                else {
-                    $("#currency-table-part-column").attr("colspan", 1);
-                    $("#currency-table-part").html("");
-                    $("#products").html("<tr><td colspan='5'> Product list is empty ... </td></tr>");
-                }
-            });
-            return false;
-        });
-
-        $('#currency').change(function (){
-            $('#update-products').submit();
-        });
-
-        $('#update-products').submit();
-
-    </script>
 @endsection

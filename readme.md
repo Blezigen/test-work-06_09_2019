@@ -1,50 +1,39 @@
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
-## How to Install
+## Установка
 
-development
+Последовательно выполнить следующие комманды:
 
-- Set develop params .env file.
-```ini
-APP_NAME=%Site name%
-APP_ENV=local
-APP_KEY=%php artisan key:generate%
-APP_DEBUG=true
-APP_URL=http://localhost
+```bash 
+git clone https://github.com/Blezigen/test-work-06_09_2019.git
 
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=%database%
-DB_USERNAME=%username%
-DB_PASSWORD=%password%
+-- Вместо test.work.example своё название папки
+mv test-work-06_09_2019 test.work.example
 
-```
+-- Вместо test.work.example своё название папки
+cd test.work.example
 
+-- Настроить переменные окружения в файле .env
+cp .env.example .env
 
-- Run migration 
-```bash
-php /path/to/artisan migrate
-```
+-- Подтянуть зависимости
+composer install
 
-- Add to cron(crontab) file
-```cron
+-- Сгенерировать уникальный ключ приложения
+php artisan key:generate
+
+-- Подключить папку storage
+php artisan storage:link
+
+-- Запуск миграций с начальными данными
+php artisan migrate --seed
+
+-- Заппуск инициализации продуктов
+php artisan db:seed --class=ProductsTableSeeder
+
+-- Создание пользователя с правами администратора
+php artisan admin:create-user
+
+-- Добавить запись в cron. Где /path/to/artisan - полный путь до файла artisan
 * * * * * php /path/to/artisan schedule:run >>/dev/null 2>&1
 ```
-
-- Install product.dump.sql
-
-## About
-
-- / - homepage
-- /login - login
-- /admin - adminpanel
-
-## Used
-
-- 
-
-
-## License
-
-The Laravel framework is open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT).

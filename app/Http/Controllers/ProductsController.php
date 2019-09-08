@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Admin\Controllers\CurrencyController;
 use App\Currency;
 use App\Product;
 use Illuminate\Http\Request;
@@ -9,6 +10,19 @@ use Illuminate\Support\Facades\Response;
 
 class ProductsController extends Controller
 {
+
+    public function index () {
+        $data = [
+            "products" => []
+        ];
+
+        $data["currencies"] = Currency::all()->toArray();
+        $data["products"] = Product::all();
+
+
+        return view('products', $data);
+    }
+
     /**
      * Get currency data.
      *
