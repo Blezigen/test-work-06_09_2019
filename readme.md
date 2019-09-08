@@ -2,7 +2,25 @@
 
 ## How to Install
 
-- Configurate .env file
+development
+
+- Set develop params .env file.
+```ini
+APP_NAME=%Site name%
+APP_ENV=local
+APP_KEY=%php artisan key:generate%
+APP_DEBUG=true
+APP_URL=http://localhost
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=%database%
+DB_USERNAME=%username%
+DB_PASSWORD=%password%
+
+```
+
 
 - Run migration 
 ```bash
