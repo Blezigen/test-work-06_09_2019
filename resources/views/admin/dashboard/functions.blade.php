@@ -35,7 +35,7 @@
     <div class="box-body functions-box" >
         <ul class="products-list product-list-in-box">
 
-        <li class="item col-md-2" id="update-currency" >
+        <li class="item col-md-12" id="update-currency" >
             <div class="product-img">
                 <i class="fa fa-refresh fa-2x ext-icon"></i>
             </div>

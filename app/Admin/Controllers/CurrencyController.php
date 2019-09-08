@@ -28,7 +28,9 @@ class CurrencyController extends AdminController
     protected function grid()
     {
         $grid = new Grid(new Currency);
-
+        $grid->tools(function (Grid\Tools $tools) {
+            $tools->append(new \App\Admin\Actions\Currency\Update());
+        });
         $grid->column('id', __('Id'));
         $grid->column('name', __('Name'));
         $grid->column('code', __('Code'));
