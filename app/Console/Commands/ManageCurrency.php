@@ -5,8 +5,6 @@ namespace App\Console\Commands;
 use App\Currency;
 use Illuminate\Console\Command;
 use Illuminate\Support\Arr;
-use Illuminate\Support\Facades\App;
-use mysql_xdevapi\Exception;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class ManageCurrency extends Command
@@ -160,6 +158,7 @@ class ManageCurrency extends Command
      * @param $currency
      * @return bool
      * @throws \Exception
+     * @throws \Throwable
      */
     private function initializeCurrency($currency)
     {

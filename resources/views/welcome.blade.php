@@ -109,14 +109,21 @@
                 }
             }).done(function(data) {
                 $("#products").html("");
-                $.each( data.products, function( key, value ) {
-                    let dataTemp = data.products[key];
-                    $("#currency-table-part-column").attr("colspan", Object.keys(dataTemp.prices).length);
-                    $("#currency-table-part").html(printCurrency(dataTemp.prices));
+                if ( data.products.length > 0 ) {
+                    $.each(data.products, function (key, value) {
+                        let dataTemp = data.products[key];
+                        $("#currency-table-part-column").attr("colspan", Object.keys(dataTemp.prices).length);
+                        $("#currency-table-part").html(printCurrency(dataTemp.prices));
 
-                    let temp = $("#products").html();
-                    $("#products").html(temp + printProduct(data.products[key] ));
-                });
+                        let temp = $("#products").html();
+                        $("#products").html(temp + printProduct(data.products[key]));
+                    });
+                }
+                else {
+                    $("#currency-table-part-column").attr("colspan", 1);
+                    $("#currency-table-part").html("");
+                    $("#products").html("<tr><td colspan='5'> Product list is empty ... </td></tr>");
+                }
             });
             return false;
         });

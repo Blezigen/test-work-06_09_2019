@@ -130,6 +130,12 @@ class AdminTablesSeeder extends Seeder
                     "slug" => "auth.management",
                     "http_method" => "",
                     "http_path" => "/auth/roles\r\n/auth/permissions\r\n/auth/menu\r\n/auth/logs"
+                ],
+                [
+                    "name" => "Update currency from of CBR",
+                    "slug" => "currency-update",
+                    "http_method" => "",
+                    "http_path" => NULL
                 ]
             ]
         );
