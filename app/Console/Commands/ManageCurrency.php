@@ -292,6 +292,12 @@ class ManageCurrency extends Command
 
         $currenciesXML = new \SimpleXMLElement($content);
 
+        $default = Currency::where(["code" => $this->defaultCurrency])->first();
+        if ($default){
+            $default->nominal = 1;
+            $default->exchange_rate = 1;
+            $default->save();
+        }
 
         foreach ($currenciesXML as $currencyIn) {
             try {
